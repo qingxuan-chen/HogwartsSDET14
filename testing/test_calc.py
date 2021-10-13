@@ -4,7 +4,7 @@ import sys
 
 import pytest
 
-sys.path.append('D:\\CHEN\\HogwartsSDET14')
+# sys.path.append('D:\\CHEN\\HogwartsSDET14')
 from pythoncode.calc import Calculator
 
 
@@ -37,15 +37,17 @@ class TestCalc:
         print("类级别teardown")
 
     def setup(self):
+        # self.cal = Calculator()
         print("setup")
 
     def teardown(self):
         print("teardown")
 
     @pytest.mark.add
-    def test_add(self):
+    @pytest.mark.parametrize('a,b,result', [(1, 1, 2), (2, 1, 3)])
+    def test_add(self, a, b, result):
         # cal = Calculator()
-        assert 2 == self.cal.add(1, 1)
+        assert result == self.cal.add(a, b)
 
     @pytest.mark.add
     def test_add1(self):
@@ -55,4 +57,4 @@ class TestCalc:
     @pytest.mark.div
     def test_div(self):
         # cal = Calculator()
-        assert 2 == self.cal.div(2, 1)
+        assert 2 == self.cal.div(6, 3)
