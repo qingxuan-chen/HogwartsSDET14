@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
 # 测试文件
 import sys
-
+from os.path import dirname, join
 import pytest
 
-# sys.path.append('D:\\CHEN\\HogwartsSDET14')
+#返回文件路径
+# sys.path.append(dirname(dirname(__file__)))
+
+
+sys.path.append('E:/XUAN/HogwartsSDET14')
 from pythoncode.calc import Calculator
 
 
 def setup_module():
     print("模块级别setup")
+    print('这个模块的路径是：' + dirname(__file__))
 
 
 def teardown_module():
@@ -52,7 +57,7 @@ class TestCalc:
     @pytest.mark.add
     def test_add1(self):
         # cal = Calculator()
-        assert 3 == self.cal.add(2, 1)
+        assert 3 == self.cal.add(4, 5)
 
     @pytest.mark.div
     def test_div(self):
