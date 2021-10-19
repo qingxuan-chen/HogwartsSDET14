@@ -17,7 +17,7 @@ class TestSeleniumDemo:
     def teardown(self):
         self.driver.quit()
 
-    def test_touchaction(self):
+    def test_touchactions(self):
         self.driver.get('https://www.baidu.com/')
         el = self.driver.find_element(By.ID, 'kw')
         el1 = self.driver.find_element(By.ID, 'su')
